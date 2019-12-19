@@ -1,0 +1,15 @@
+/node_modules
+/dist
+/coverage
+nodemon-debug.json
+.env
+.DS_Store
+yarn-error.log
+yarn.lock
+postman-collection.json
+postman-environment.json
+swagger.json
+swagger.md
+/.vscode
+report*.json
+dtrace-provider@*
