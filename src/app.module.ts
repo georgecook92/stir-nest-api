@@ -4,6 +4,7 @@ import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConne
 
 import { ConfigModule } from './modules/config/config.module';
 import { ConfigService } from './modules/config/config.service';
+import { AccountAppModule } from './modules/account/account.app.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ConfigService } from './modules/config/config.service';
         } as PostgresConnectionOptions;
       },
     }),
+    AccountAppModule,
   ],
 })
 export class AppModule {}
