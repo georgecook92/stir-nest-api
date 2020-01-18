@@ -4,44 +4,12 @@ export class InitAccount1576778276204 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<any> {
     await queryRunner.createTable(
       new Table({
-        name: 'user_type',
-        columns: [
-          {
-            name: 'id',
-            type: 'text',
-            isPrimary: true,
-          },
-          {
-            name: 'name',
-            type: 'text',
-          },
-          {
-            name: 'created_at',
-            type: 'timestamptz',
-            default: 'NOW()',
-          },
-          {
-            name: 'updated_at',
-            type: 'timestamptz',
-            default: 'NOW()',
-          },
-        ],
-      }),
-      true,
-    );
-
-    await queryRunner.createTable(
-      new Table({
         name: 'user',
         columns: [
           {
             name: 'id',
             type: 'text',
             isPrimary: true,
-          },
-          {
-            name: 'user_type_id',
-            type: 'text',
           },
           {
             name: 'first_name',
@@ -69,6 +37,11 @@ export class InitAccount1576778276204 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: 'admin',
+            type: 'boolean',
+            isNullable: false,
+          },
+          {
             name: 'created_at',
             type: 'timestamptz',
             default: 'NOW()',
@@ -79,13 +52,6 @@ export class InitAccount1576778276204 implements MigrationInterface {
             default: 'NOW()',
           },
         ],
-        foreignKeys: [
-          {
-            columnNames: ['user_type_id'],
-            referencedColumnNames: ['id'],
-            referencedTableName: 'user_type',
-          },
-        ],
       }),
       true,
     );
@@ -93,6 +59,5 @@ export class InitAccount1576778276204 implements MigrationInterface {
 
   public async down(queryRunner: QueryRunner): Promise<any> {
     await queryRunner.dropTable('user');
-    await queryRunner.dropTable('user_type');
   }
 }
