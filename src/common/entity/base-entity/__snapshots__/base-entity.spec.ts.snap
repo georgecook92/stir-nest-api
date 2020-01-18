@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseEntity should attach the correct prefix to the entity 1`] = `
+MockEntity {
+  "entityPrefix": "test_",
+}
+`;
